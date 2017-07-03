@@ -1,4 +1,5 @@
-import csv
+import os 
+import csv 
 import cv2
 import numpy as np
 
@@ -18,3 +19,14 @@ def get_train(IMG_path, driving_log_csv):
         images.append(cv2.imread(cur_path))
         measurements.append(float(line[3]))
     return np.array(images), np.array(measurements)
+
+"""
+    Creates a directory, if not exists. 
+    path: new path
+"""    
+def create_dir(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+        print("Create directory {}".format(path))
+    else:
+        print("Directory {} exists".format(path))
