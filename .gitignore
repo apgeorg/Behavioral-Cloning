@@ -7,6 +7,7 @@ linux-sim/
 video.py
 writeup_template.md
 drive.py
+*.md
 *.py[cod]
 *$py.class
 
