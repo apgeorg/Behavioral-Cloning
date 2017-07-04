@@ -7,7 +7,8 @@ def read_csv(driving_log_csv):
     with open(driving_log_csv) as csvfile:
         reader = csv.reader(csvfile)
         return [line for line in reader]
-      
+
+
 def get_train(IMG_path, driving_log_csv):        
     images = []
     measurements = []
@@ -16,8 +17,12 @@ def get_train(IMG_path, driving_log_csv):
         src_path = line[0]
         filename = src_path.split('/')[-1]
         cur_path =  IMG_path + filename
-        images.append(cv2.imread(cur_path))
-        measurements.append(float(line[3]))
+        img = cv2.imread(cur_path)
+        measurement = float(line[3])
+        images.append(img)
+        images.append(cv2.flip(img, 1))
+        measurements.append(measurement)
+        measurements.append(measurement * -1.)
     return np.array(images), np.array(measurements)
 
 """
