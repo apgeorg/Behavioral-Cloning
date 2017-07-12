@@ -30,11 +30,11 @@ The data set provided by Udacity contains 8036 images for each camera (center, l
 
 ### Data Pre-processing
 
-As a first step, the images were cropped by 60 pixels from top and 20 pixels from bottom to remove not relevant information like the sky and the car front.
+As a first step, the images were cropped by 60 pixels from top and 20 pixels from bottom to remove not relevant information like the sky, background and the car front.
 
 ![alt text][image2]
 
-Next, I decided to resize the images to 48x128x3 to reduce the complexity of the neural network. Here is an example of an resized images for each camera. 
+Next, I decided to resize the images to 48x128x3 to reduce the complexity of the neural network. Here is an example of an resized image of each camera. 
 
 ![alt text][image3]
 
