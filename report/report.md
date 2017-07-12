@@ -11,7 +11,7 @@ The goals / steps of this project are the following:
 [//]: # (Image References)
 
 [image1]: ./images/original.png "Original Images"
-[image2]: ./examples/placeholder.png "Grayscaling"
+[image2]: ./images/cropped.png "Cropped Images"
 [image3]: ./examples/placeholder_small.png "Recovery Image"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
 [image5]: ./examples/placeholder_small.png "Recovery Image"
@@ -22,9 +22,15 @@ The goals / steps of this project are the following:
 
 The goal of this project is to build, a convolution neural network in Keras that predicts steering angles from camera images. The resulting model should successfully drive around a track without leaving the road.  
 
-### Data Set Summary & Exploration 
+### Data Exploration 
 
-The data set provided by udacity contains 8036 images for each camera (center, left, right) with an image shape of (160x320x3).To get an idea what the images in the look like, I visualize an image of each camera.
+The data set provided by udacity contains 8036 images for each camera (center, left, right) with an image shape of (160x320x3).To get an idea what the images the look like, I visualize an image of each camera.
+
+### Data Pre-processing
+
+As a first step, the images were cropped by 60 pixels from top and 20 pixels from bottom to remove not relevant information like the sky and the car front.
+
+I decided to generate additional data because of the imbalance of the train data set. To add more data to the the data set, I rotate, contrast and sharpen the images randomly. 
 
 ![alt text][image1]
 
