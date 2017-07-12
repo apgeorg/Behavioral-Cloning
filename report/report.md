@@ -12,7 +12,7 @@ The goals / steps of this project are the following:
 
 [image1]: ./images/original.png "Original Images"
 [image2]: ./images/cropped.png "Cropped Images"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
+[image3]: ./images/resized.png "Resized Images"
 [image4]: ./examples/placeholder_small.png "Recovery Image"
 [image5]: ./examples/placeholder_small.png "Recovery Image"
 [image6]: ./examples/placeholder_small.png "Normal Image"
@@ -24,7 +24,7 @@ The goal of this project is to build, a convolution neural network in Keras that
 
 ### Data Exploration 
 
-The data set provided by udacity contains 8036 images for each camera (center, left, right) with an image shape of (160x320x3).To get an idea what the images the look like, I visualize an image of each camera.
+The data set provided by udacity contains 8036 images for each camera (center, left, right) with an image shape of 160x320x3.To get an idea what the images the look like, I visualize an image of each camera.
 
 ![alt text][image1]
 
@@ -33,6 +33,10 @@ The data set provided by udacity contains 8036 images for each camera (center, l
 As a first step, the images were cropped by 60 pixels from top and 20 pixels from bottom to remove not relevant information like the sky and the car front.
 
 ![alt text][image2]
+
+Next, I decided to resize the images to 48x128x3 to reduce the complexity of the neural network. Here is an example of an resized images for each camera. 
+
+![alt text][image3]
 
 I decided to generate additional data because of the imbalance of the train data set. To add more data to the the data set, I rotate, contrast and sharpen the images randomly. 
 
