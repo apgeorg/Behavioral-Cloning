@@ -26,13 +26,15 @@ The goal of this project is to build, a convolution neural network in Keras that
 
 The data set provided by udacity contains 8036 images for each camera (center, left, right) with an image shape of (160x320x3).To get an idea what the images the look like, I visualize an image of each camera.
 
+![alt text][image1]
+
 ### Data Pre-processing
 
 As a first step, the images were cropped by 60 pixels from top and 20 pixels from bottom to remove not relevant information like the sky and the car front.
 
-I decided to generate additional data because of the imbalance of the train data set. To add more data to the the data set, I rotate, contrast and sharpen the images randomly. 
+![alt text][image2]
 
-![alt text][image1]
+I decided to generate additional data because of the imbalance of the train data set. To add more data to the the data set, I rotate, contrast and sharpen the images randomly. 
 
 ### Model Architecture and Training Strategy
 
