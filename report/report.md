@@ -22,7 +22,7 @@ The goals / steps of this project are the following:
 
 The goal of this project is to build, a convolution neural network in Keras that predicts steering angles from camera images. The resulting model should successfully drive around a track without leaving the road.  
 
-### Data Exploration 
+### Data Set Exploration 
 
 The data set provided by Udacity contains 8036 images for each camera (center, left, right) with an image shape of 160x320x3.To get an idea what the images the look like, I visualize an image of each camera.
 
@@ -42,7 +42,7 @@ I decided to generate additional data because of the imbalance of the train data
 
 ### Model Architecture and Training Strategy
 
-#### 1. An appropriate model architecture has been employed
+#### Model Architecture
 
 My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
 
