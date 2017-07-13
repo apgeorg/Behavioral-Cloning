@@ -3,7 +3,7 @@
 [image1]: ./images/original.png "Original Images"
 [image2]: ./images/cropped.png "Cropped Images"
 [image3]: ./images/resized.png "Resized Images"
-[image4]: ./iamges/flipped.png "Flipped Image"
+[image4]: ./images/flipped.png "Flipped Image"
 [image5]: ./images/brightness.png "Recovery Image"
 
 ## Behavioral Cloning 
