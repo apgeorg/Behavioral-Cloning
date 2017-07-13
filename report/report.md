@@ -1,13 +1,3 @@
-**Behavioral Cloning Project**
-
-The goals / steps of this project are the following:
-* Use the simulator to collect data of good driving behavior
-* Build, a convolution neural network in Keras that predicts steering angles from images
-* Train and validate the model with a training and validation set
-* Test that the model successfully drives around track one without leaving the road
-* Summarize the results with a written report
-
-
 [//]: # (Image References)
 
 [image1]: ./images/original.png "Original Images"
@@ -22,13 +12,13 @@ The goals / steps of this project are the following:
 
 The goal of this project is to build, a convolution neural network in Keras that predicts steering angles from camera images. The resulting model should successfully drive around a track without leaving the road.  
 
-### Data Set Exploration 
+### Data Set Exploration & Pre-processing
 
 The data set provided by Udacity contains 8036 images for each camera (center, left, right) with an image shape of 160x320x3.To get an idea what the images the look like, I visualize an image of each camera.
 
 ![alt text][image1]
 
-### Data Pre-processing 
+#### Data Pre-processing 
 
 As a first step, the images were cropped by 60 pixels from top and 20 pixels from bottom to remove not relevant information like the sky, background and the car front.
 
@@ -46,7 +36,7 @@ The training data was chosen to keep the vehicle driving on the road. I used a c
 
 To capture good driving behavior, I first recorded four laps on track one using center lane driving. I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn these behavior. 
 
-To augment the data set, I also randomly flipped images and the steering angles thinking that this would remove the bias from our model. For example, here is an image that has then been flipped:
+To augment the data set, I also randomly flipped images and the steering angles thinking that this would remove the bias from the model. For example, here is an image that has then been flipped:
 
 ![alt text][image6]
 ![alt text][image7]
