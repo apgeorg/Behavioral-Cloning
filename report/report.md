@@ -36,7 +36,11 @@ The training data was chosen to keep the vehicle driving on the road. I used a c
 
 To capture good driving behavior, I first recorded four laps on track one using center lane driving with recovering gentle from left side and right sides back to center road, so that the vehicle would learn to drive centered. Further, I recorded two laps in the opposite direction on track one to have a more balanced training set. 
 
-For the final training set I randomly select images from the left, right or center camera of the recorded data set. The total number of images for the training set is 14960.
+For the final training set I randomly select images from the left, right or center camera of the recorded data set. 
+
+Choosing randomly left and right images while adding a small correction of 0.25 for the left camera angle and substracting these from the right camera angle, helped to teach the model to correct the car to the center of the track.
+
+The total number of images for the training set is 14960.
 
 To augment the data set, I randomly flipped images and the steering angles because track one contains more left turns than right turns. For example, here is an image that has been flipped:
 
