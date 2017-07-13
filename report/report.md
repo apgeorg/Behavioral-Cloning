@@ -4,7 +4,8 @@
 [image2]: ./images/cropped.png "Cropped Images"
 [image3]: ./images/resized.png "Resized Images"
 [image4]: ./images/flipped.png "Flipped Image"
-[image5]: ./images/brightness.png "Recovery Image"
+[image5]: ./images/brightness.png "Changed Brightness"
+[image6]: ./images/augmented.png "Augmented Images"
 
 ## Behavioral Cloning 
 
@@ -34,7 +35,7 @@ The training data was chosen to keep the vehicle driving on the road. I used a c
 
 To capture good driving behavior, I first recorded four laps on track one using center lane driving. I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn these behavior. 
 
-For the final training set I randomly select images from the left, right or center camera. So the total number of the training set is XXX. 
+For the final training set I randomly select images from the left, right or center camera. So the total number of the training set is 26256. 
 
 To augment the data set, I also randomly flipped images and the steering angles thinking that this would remove the bias from the model. For example, here is an image that has then been flipped:
 
@@ -44,7 +45,11 @@ Furthermore, I randomly adjust the brightness as an augmetation technique to gen
 
 ![alt text][image5]
 
-After these process, I had X number of data points. Finally, I randomly shuffled the data set and put 20% of the data into a validation set.  I used this training data for training the model. The validation set helped determine if the model was over or under fitting.
+Here are some randomly augmented images for the training set: 
+
+![alt text][image6]
+
+Finally, I randomly shuffled the data set and put 20% of the data into a validation set.  I used this training data for training the model. The validation set helped determine if the model was over or under fitting.
 
 ### Model Architecture and Training Strategy
 
