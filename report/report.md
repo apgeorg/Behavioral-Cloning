@@ -3,10 +3,8 @@
 [image1]: ./images/original.png "Original Images"
 [image2]: ./images/cropped.png "Cropped Images"
 [image3]: ./images/resized.png "Resized Images"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image4]: ./iamges/flipped.png "Flipped Image"
+[image5]: ./images/brightness.png "Recovery Image"
 
 ## Behavioral Cloning 
 
@@ -40,13 +38,11 @@ For the final training set I randomly select images from the left, right or cent
 
 To augment the data set, I also randomly flipped images and the steering angles thinking that this would remove the bias from the model. For example, here is an image that has then been flipped:
 
-![alt text][image6]
-![alt text][image7]
+![alt text][image4]
 
 Furthermore, I randomly adjust the brightness as an augmetation technique to generate more data and for preventing overfitting. 
 
-![alt text][image6]
-![alt text][image7]
+![alt text][image5]
 
 After these process, I had X number of data points. Finally, I randomly shuffled the data set and put 20% of the data into a validation set.  I used this training data for training the model. The validation set helped determine if the model was over or under fitting.
 
