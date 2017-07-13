@@ -6,6 +6,7 @@
 [image4]: ./images/flipped.png "Flipped Image"
 [image5]: ./images/brightness.png "Changed Brightness"
 [image6]: ./images/augmented.png "Augmented Images"
+[image7]: ./images/model.png "Model Architecture"
 
 ## Behavioral Cloning 
 
@@ -23,7 +24,7 @@ As a first step, the images were cropped by 60 pixels from top and 20 pixels fro
 
 ![alt text][image2]
 
-As next, the images were resized to 48x128x3 to reduce the complexity of the neural network. Here is an example of an resized image of each camera. 
+As next, the images were resized to 64x128x3 to reduce the complexity of the neural network. Here is an example of an resized image of each camera. 
 
 ![alt text][image3]
 
@@ -33,30 +34,34 @@ The training data was chosen to keep the vehicle driving on the road. I used a c
 
 #### Creation of the Training Set 
 
-To capture good driving behavior, I first recorded four laps on track one using center lane driving. I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn these behavior. 
+To capture good driving behavior, I first recorded four laps on track one using center lane driving with recovering gentle from left side and right sides back to center road, so that the vehicle would learn to drive centered. Further, I recorded two laps in the opposite direction on track one to have a more balanced training set. 
 
-For the final training set I randomly select images from the left, right or center camera. So the total number of the training set is 26256. 
+For the final training set I randomly select images from the left, right or center camera of the recorded data set. The total number of images for the training set is 14960.
 
-To augment the data set, I also randomly flipped images and the steering angles thinking that this would remove the bias from the model. For example, here is an image that has then been flipped:
+To augment the data set, I randomly flipped images and the steering angles because track one contains more left turns than right turns. For example, here is an image that has been flipped:
 
 ![alt text][image4]
 
-Furthermore, I randomly adjust the brightness as an augmetation technique to generate more data and for preventing overfitting. 
+Furthermore, I also randomly adjust the brightness as an augmentation technique. 
 
 ![alt text][image5]
 
-Here are some randomly augmented images for the training set: 
+After performing data augmentation the total number of the training set was almost doubled. Here are some randomly augmented images from the training set: 
 
 ![alt text][image6]
 
-Finally, I randomly shuffled the data set and put 20% of the data into a validation set.  I used this training data for training the model. The validation set helped determine if the model was over or under fitting.
+Finally, I randomly shuffled the data set and put 20% of the data into a validation set. I used this training data for training the model. The validation set helped determine if the model was over or under fitting.
 
 ### Model Architecture and Training Strategy
 
 #### Model architecture
 
 My first approach was to trying the NVDIA architecture which is an proven architecture for autonomous driving. 
-These architecture was quite enough to ensuring that the vehicle could stay on the track.
+These architecture was quite enough to ensuring that the vehicle could stay on the track. 
+
+![alt text][image7]
+
+
 
 My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
 
