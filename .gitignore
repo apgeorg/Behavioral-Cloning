@@ -1,12 +1,12 @@
 __pycache__/
 .ipynb_checkpoints/
 data/
-models/
-examples/
+nbs/
 linux-sim/
+docs/
 video.py
 writeup_template.md
-drive.py
+README.md
 *.py[cod]
 *$py.class
 
