@@ -38,7 +38,7 @@ To capture good driving behavior, I first recorded four laps on track one using 
 
 For the final training set I randomly select images from the left, right or center camera of the recorded data. Choosing randomly left and right images while adding a small correction of 0.25 for the left camera angle and substracting these from the right camera angle, it helps to teach the model to correct the car to the center of the track.
 
-##### Augmentation
+#### Augmentation
 
 Data Augmentation was used because track one contains more left turns than right turns. To compensate the data set, I randomly flipped images and the steering angles. For example, here is an image that has been flipped:
 
@@ -72,22 +72,17 @@ The model includes RELU layers to introduce nonlinearity.
 
 #### Training & Model parameters 
 
-The model used an adam optimizer with a fix learning rate of 1e-4. The batch size was set to 32 images. The weights were initialized by a glorot uniform distribution, also called Xavier uniform distribution. The network was trained for 3 epochs.
+The model used an adam optimizer with a fix learning rate of 1e-4. The batch size was set to 32 images. The weights were initialized by a glorot uniform distribution, also called Xavier uniform distribution. The network was trained for 3 epochs. Training with more epochs does not decrease the mean squared error.  
 
 #### Evaluation
 
 The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 At the end of the process, the vehicle is able to drive autonomously around the track one without leaving the road.
 
-#### Solution Design Approach
-
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
-
 ### Running the Model 
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
 ```sh
-python drive.py model.h5
+python drive.py models/model.h5
 ```
-
 ### References 
 [1] https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/
