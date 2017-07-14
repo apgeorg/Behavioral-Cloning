@@ -2,6 +2,7 @@ __pycache__/
 .ipynb_checkpoints/
 data/
 nbs/
+run1/
 linux-sim/
 docs/
 video.py
