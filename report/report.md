@@ -58,7 +58,7 @@ Finally, I randomly shuffled the data set and put 20% of the data into a validat
 
 #### Model architecture
 
-The overall strategy for deriving a model architecture was to trying the NVIDIA architecture which is an proven architecture for autonomous driving. These architecture was good enough to ensure that the vehicle could stay on the track. 
+The overall strategy for deriving a model architecture was to trying the NVIDIA architecture [1] which is an proven architecture for autonomous driving. These architecture was good enough to ensure that the vehicle could stay on the track. 
 
 The figure below shows the network architecture, which consists of nine layers, including a normalization layer, five convolutional layers, and three fully connected layers.
 
@@ -88,3 +88,6 @@ Using the Udacity provided simulator and my drive.py file, the car can be driven
 ```sh
 python drive.py model.h5
 ```
+
+### References 
+[1] https://devblogs.nvidia.com/parallelforall/deep-learning-self-driving-cars/
