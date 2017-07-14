@@ -16,6 +16,7 @@ from keras.models import load_model
 import h5py
 from keras import __version__ as keras_version
 
+from utils import utils
 import cv2
 
 sio = socketio.Server()
@@ -49,9 +50,6 @@ controller = SimplePIController(0.1, 0.002)
 set_speed = 9
 controller.set_desired(set_speed)
 
-def crop(image, top=0, bottom=0, left=0, right=0):
-    return image[top:image.shape[0]-bottom,left:image.shape[1]-right,:]
-
 @sio.on('telemetry')
 def telemetry(sid, data):
     if data:
@@ -65,7 +63,7 @@ def telemetry(sid, data):
         imgString = data["image"]
         image = Image.open(BytesIO(base64.b64decode(imgString)))
         image_array = np.asarray(image)
-        image_array = cv2.resize(crop(image_array, 60,20), (128, 64))
+        image_array = cv2.resize(utils.crop(image_array, 60,20), (128, 64))
         steering_angle = float(model.predict(image_array[None, :, :, :], batch_size=1))
 
         throttle = controller.update(float(speed))
