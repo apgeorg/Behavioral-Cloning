@@ -36,13 +36,11 @@ The training data was chosen to keep the vehicle driving on the road. I used a c
 
 To capture good driving behavior, I first recorded four laps on track one using center lane driving with recovering gentle from left side and right sides back to center road, so that the vehicle would learn to drive centered. Further, I recorded two laps in the opposite direction on track one to have a more balanced training set. 
 
-For the final training set I randomly select images from the left, right or center camera of the recorded data set. 
+For the final training set I randomly select images from the left, right or center camera of the recorded data. Choosing randomly left and right images while adding a small correction of 0.25 for the left camera angle and substracting these from the right camera angle, it helps to teach the model to correct the car to the center of the track.
 
-Choosing randomly left and right images while adding a small correction of 0.25 for the left camera angle and substracting these from the right camera angle, helped to teach the model to correct the car to the center of the track.
+##### Augmentation
 
-The total number of images for the training set is 14960.
-
-To augment the data set, I randomly flipped images and the steering angles because track one contains more left turns than right turns. For example, here is an image that has been flipped:
+Data Augmentation was used because track one contains more left turns than right turns. To compensate the data set, I randomly flipped images and the steering angles. For example, here is an image that has been flipped:
 
 ![alt text][image4]
 
@@ -60,49 +58,30 @@ Finally, I randomly shuffled the data set and put 20% of the data into a validat
 
 #### Model architecture
 
-My first approach was to trying the NVDIA architecture which is an proven architecture for autonomous driving. 
-These architecture was quite enough to ensuring that the vehicle could stay on the track. 
+The overall strategy for deriving a model architecture was to trying the NVIDIA architecture which is an proven architecture for autonomous driving. These architecture was good enough to ensure that the vehicle could stay on the track. 
+
+The figure below shows the network architecture, which consists of nine layers, including a normalization layer, five convolutional layers, and three fully connected layers.
 
 ![alt text][image7]
 
+The first layer of the network performs image normalization (pixel / 255 - 0.5) by using a Keras lambda layer. According to NVIDIA, performing normalization in the network allows the normalization scheme to be altered with the network architecture, and to be accelerated via GPU processing.
 
+The first three convolutional layers uses a 2×2 stride, a 5×5 filter size and depths between 24 and 48. The final two convolutional layers are non-strided convolutions with a 3×3 filter size and a depth of 64 followed by three fully connected layers.
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24) 
+The model includes RELU layers to introduce nonlinearity. 
 
-The model includes RELU layers to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). 
+#### Training & Model parameters 
 
-As a last step, I normalized the image data to a range of [0,1] by using ((pixel / 255) - 0.5), so the network can treat every feature equally.
+The model used an adam optimizer with a fix learning rate of 1e-4. The batch size was set to 32 images. The weights were initialized by a glorot uniform distribution, also called Xavier uniform distribution. The network was trained for 3 epochs on a notebook.
 
-#### 3. Model parameter tuning
-
-The model used an adam optimizer with a fix learning rate 1e-3. The batch size was set to 32 images. The weights were initialized by a glorot uniform distribution, also called Xavier uniform distribution. The network was trained for 3 epochs on a notebook.
-
-### Model Architecture and Training Strategy
-
-#### 1. Solution Design Approach
-
-The overall strategy for deriving a model architecture was to ...
-
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
-
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
-
-To combat the overfitting, I modified the model so that ...
-
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+#### Evaluation
 
 The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
-At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
+At the end of the process, the vehicle is able to drive autonomously around the track one without leaving the road.
 
-#### 2. Final Model Architecture
+#### Solution Design Approach
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
-
-Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
-
-![alt text][image1]
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
 
 ### Running the Model 
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
