@@ -72,7 +72,7 @@ The model includes RELU layers to introduce nonlinearity.
 
 #### Training & Model parameters 
 
-The model used an adam optimizer with a fix learning rate of 1e-4. The batch size was set to 32 images. The weights were initialized by a glorot uniform distribution, also called Xavier uniform distribution. The network was trained for 3 epochs. Training with more epochs does not decrease the mean squared error.  
+The model used an adam optimizer with a fix learning rate of 1e-4. The batch size was set to 32 images. The weights were initialized by a glorot uniform distribution, also called Xavier uniform distribution. The network was trained for 3 epochs. Training with more epochs does not significantly decrease the mean squared error.  
 
 #### Evaluation
 
